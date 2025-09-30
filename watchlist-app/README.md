@@ -37,14 +37,15 @@ npm run dev
 - **v-model:** Two-way binding entre input e dados
 - **@click / @keyup.enter:** Event handlers _(@ é shorthand de `v-on:`)_
 - **v-for:** Renderizar listas dinamicamente
-- **:key:** Identificar elementos únicos em listas
+- **`:key` (v-bind:key):** Identificar elementos únicos em listas
 
 **Interpolação** = inserir dados JavaScript no HTML de forma dinâmica utilizando a `{{ expressão }}`.
 
 - Exemplo:
 
   ```vue
-  <h1>{{ message }}</h1>   <!-- Mostra valor de message -->
+  <h1>{{ message }}</h1>
+  <!-- Mostra valor de message -->
   ```
 
 - Vue avalia a expressão e substitui pelo valor correspondente. Sempre que os dados mudam, o template atualiza automaticamente.
