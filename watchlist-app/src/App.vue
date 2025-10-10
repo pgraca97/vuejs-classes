@@ -6,15 +6,29 @@ export default {
       message: 'Hello World',
       greetings: 'My first web vue app',
       movieInput: '', // Input ligado ao v-model
-      movieArray: [], // Array que armazena os filmes
+      movieArray: [], // Array que armazena os filmes (agora objetos)
+      movieId: 1, // ID incremental para cada filme
     }
   },
 
   methods: {
     // Método para adicionar filme à lista
     addMovie() {
-      this.movieArray.push(this.movieInput) // Adiciona ao array
-      console.log(this.movieArray) // Debug: mostra array no console
+      // Verificar se o input não está vazio
+      if (this.movieInput.trim() === '') {
+        alert('Por favor, insira o nome de um filme ou série!')
+        return // Sai do método sem adicionar
+      }
+
+      // Cria objeto com nome e ID único
+      const newMovie = {
+        id: this.movieId++, // Incrementa após cada utilização
+        name: this.movieInput,
+        // Alternativa com UUID (mais robusto):
+        // id: self.crypto.randomUUID(), -> https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID
+      }
+
+      this.movieArray.push(newMovie) // Adiciona objeto ao array
       this.movieInput = '' // Limpa o input após adicionar
     },
   },
@@ -45,10 +59,10 @@ export default {
     <div class="movie-list">
       <h2 id="movie-list">Movie List</h2>
       <!-- v-for: renderiza lista dinamicamente -->
-      <!-- :key: identifica cada item uniquamente -->
+      <!-- :key: usa ID único (não o nome, que nesta lógica pode ser duplicado) -->
       <ul aria-labelledby="movie-list">
-        <li v-for="(movie, index) in movieArray" :key="movie">
-          {{ movie }}
+        <li v-for="movie in movieArray" :key="movie.id">
+          {{ movie.name }}
         </li>
       </ul>
     </div>
