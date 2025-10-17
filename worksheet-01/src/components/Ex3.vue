@@ -15,7 +15,7 @@ export default {
     }
   },
 
-  // === LIFECYCLE HOOKS (Ciclo de vida do componente) ===
+  // LIFECYCLE HOOKS (Ciclo de vida do componente)
 
   // CRIAÇÃO
   beforeCreate() {

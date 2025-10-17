@@ -22,6 +22,15 @@ Primeiro projeto hands-on: lista de filmes com conceitos básicos (data, methods
 Ficha de exercícios para consolidar conceitos fundamentais: interpolação, computed vs methods, lifecycle hooks, e diretivas (v-for, v-if, v-bind, v-on, v-html).
 
 
+### **Semana 3** (13 out - 17 out)
+
+#### `worksheet-02/`
+
+Ficha de exercícios com dois projetos práticos:
+- **Counter App** - Contador interativo com validação, atalhos de teclado e gestão de timeouts
+- **Watch Vault** - Gestão de watchlist com formulário, ordenação dinâmica e persistência com localStorage
+
+
 ## Requirements
 
 **Software necessário:**
