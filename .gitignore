@@ -1,0 +1,6 @@
+/node_modules
+/dist
+/.env
+
+# Ignore AI instruction file for local/private agent notes
+.github/copilot-instructions.md
