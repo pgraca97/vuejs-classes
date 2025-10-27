@@ -59,7 +59,7 @@ export default {
     <div class="movie-list">
       <h2 id="movie-list">Movie List</h2>
       <!-- v-for: renderiza lista dinamicamente -->
-      <!-- :key: usa ID único (não o nome, que nesta lógica pode ser duplicado) -->
+      <!-- :key: utiliza ID único (não o nome, que nesta lógica pode ser duplicado) -->
       <ul aria-labelledby="movie-list">
         <li v-for="movie in movieArray" :key="movie.id">
           {{ movie.name }}

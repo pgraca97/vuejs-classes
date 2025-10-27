@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://use.typekit.net/nkc3wfz.css');
+
+/* Estilos globais */
+html {
+  scrollbar-gutter: stable;
+  box-sizing: border-box;
+}
+
+
+
+
+body {
+  font-family: 'inter-variable', 'Inter', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background-color: rgb(26, 26, 26);
+
+}
+
+#app {
+  max-width: 1440px;
+  margin: 0 auto;
+   padding: 16px; 
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  body {
+    padding-inline: 24px;
+  }
+
+  #app {
+    padding: 24px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  body {
+    padding-inline: 32px;
+  }
+
+  #app {
+    padding: 32px;
+  }
+}
+
+/* Desktop plus */
+@media (min-width: 1280px) {
+  body {
+    padding-inline: 48px;
+  }
+
+  #app {
+    padding: 48px;
+  }
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  color: rgba(255, 255, 255, 0.87);
+  margin-top: 0;
+}
+
+p {
+  color: rgba(235, 235, 235, 0.6);
+}

@@ -305,7 +305,7 @@ saveToLocalStorage() {
 - Objeto para classe condicional: `filled` aplicada se condição true
 - Condição: estrela atual ≤ preview **ou** rating selecionado
 
-> **Quando usar computed?** Se a lógica de classes ficasse mais complexa (múltiplas condições, cálculos), seria melhor extrair para uma computed property.
+> **Quando utilizar computed?** Se a lógica de classes ficasse mais complexa (múltiplas condições, cálculos), seria melhor extrair para uma computed property.
 
 **Events:**
 
