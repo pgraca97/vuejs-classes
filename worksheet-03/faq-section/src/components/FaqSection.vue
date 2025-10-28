@@ -67,34 +67,22 @@ export default {
 .faq-section {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
+  padding-inline: 2rem;
 }
 
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  color: var(--green);
 }
 
 .section-title {
-  color: #2c3e50;
-  font-size: 2rem;
   margin: 0;
 }
 
-.close-all-btn {
-  padding: 0.75rem 1.5rem;
-  background: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.close-all-btn:hover {
-  background: #c0392b;
-}
 </style>

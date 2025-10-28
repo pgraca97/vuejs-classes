@@ -37,6 +37,7 @@ export default {
         {
           id: crypto.randomUUID(),
           title: 'Como comunicam os componentes entre si?',
+          subtitle: 'Através de props e eventos para componentes pai-filho.',
           body: 'Os componentes comunicam através de props (dados descem do pai para filho) e eventos (notificações sobem do filho para pai). Este padrão unidirecional torna o fluxo de dados previsível e fácil de debugar. O pai é sempre a fonte de verdade dos dados, e os filhos notificam o pai quando algo acontece. Para comunicação entre componentes que não são pai-filho direto, podes utilizar um event bus, provide/inject, ou uma store centralizada como Pinia.',
         },
       ],
@@ -53,23 +54,13 @@ export default {
 </template>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: #f5f7fa;
-}
 
 .app {
-  padding: 2rem;
+  max-width: 800px;
+  margin-inline: auto;
 }
 
 h1 {
   text-align: center;
-  color: #2c3e50;
-  margin-bottom: 3rem;
 }
 </style>

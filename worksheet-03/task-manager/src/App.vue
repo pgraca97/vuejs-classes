@@ -19,12 +19,6 @@ export default {
 <style>
 .app {
   max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-}
-
-h1 {
-  text-align: center;
-  color: #2c3e50;
+  margin-inline: auto;
 }
 </style>

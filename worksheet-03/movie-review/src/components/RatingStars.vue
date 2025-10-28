@@ -61,17 +61,17 @@ export default {
 
 .star {
   cursor: pointer;
-  color: #ddd;
+  color: var(--text-dark-secondary);
   transition: all 0.2s;
 }
 
 .star:hover {
   transform: scale(1.1);
-  color: #f39c12;
+  color: var(--yellow);
 }
 
 .star.filled {
-  fill: #f39c12;
-  color: #f39c12;
+  fill: var(--yellow);
+  color: var(--yellow);
 }
 </style>

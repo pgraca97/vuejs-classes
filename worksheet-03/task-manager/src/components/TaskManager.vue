@@ -74,7 +74,7 @@ export default {
     <TaskInput @add-task="addTask" />
     
     <!-- Contador de tarefas -->
-    <div class="task-counter">
+    <div v-if="totalTasks" class="task-counter">
       <p>Total de tarefas: {{ totalTasks }}</p>
       <p>Tarefas completas: {{ completedTasks }} / {{ totalTasks }}</p>
     </div>
@@ -90,7 +90,7 @@ export default {
       />
       
       <!-- Mensagem quando não há tarefas -->
-      <p v-if="tasks.length === 0" class="empty-message">
+      <p v-if="!totalTasks" class="empty-message">
         Nenhuma tarefa ainda. Adiciona uma acima!
       </p>
     </div>
@@ -99,7 +99,7 @@ export default {
 
 <style scoped>
 .task-manager {
-  background: white;
+  background: var(--bg-soft);
   border-radius: 8px;
   padding: 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -107,26 +107,21 @@ export default {
 
 .task-counter {
   margin: 1.5rem 0;
-  padding: 1rem;
-  background: #f5f5f5;
-  border-radius: 4px;
-  text-align: center;
 }
 
 .task-counter p {
   margin: 0.25rem 0;
-  font-weight: 600;
-  color: #555;
+  font-weight: 500;
+  color: var(--text-dark-secondary);
 }
 
-.task-list {
-  margin-top: 1.5rem;
+.task-counter p:last-child {
+  margin-bottom: 0;
 }
 
 .empty-message {
   text-align: center;
-  color: #999;
-  font-style: italic;
-  padding: 2rem;
+  color: var(--text-dark-secondary);
+  margin: 0;
 }
 </style>

@@ -82,17 +82,15 @@ export default {
 .movie-review {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(84, 84, 84, 0.65);
+  border: 1px solid var(--divider);
   border-radius: 8px;
   padding: 1.5rem;
-  background-color: rgb(36, 36, 36);
+  background-color: var(--bg-soft);
   transition: border-color 0.3s;
 }
 
 .movie-review.watched {
-  border-color: #42b883;
-
-  background-color: rgb(36, 36, 36);
+  border-color: var(--green);
 }
 
 span.title {
@@ -104,8 +102,7 @@ span.title {
 }
 
 span.title svg {
-  color: #42b883;
-
+  color: var(--green);
 }
 
 .movie-review h2 {
@@ -113,7 +110,7 @@ span.title svg {
 }
 
 .description {
-  color: rgba(235, 235, 235, 0.6);
+  color: var(--text-dark-secondary);
   margin: 1rem 0;
   flex: 1;
 
@@ -133,18 +130,19 @@ span.title svg {
   font-weight: 500;
   font-size: 0.95rem;
   font-style: italic;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-dark-secondary);
 }
 
 .watched-btn {
   font-family: inherit;
   width: 100%;
   padding: 0.75rem;
-  background-color: #2f2f2f;
+  background-color: var(--black-mute);
   color: white;
-  border: 1px solid rgba(84, 84, 84, 0.65);
+  border: 1px solid var(--divider);
   border-radius: 8px;
 
+  font-size: 0.9rem;
   font-weight: 600;
 
   color: rgba(255, 255, 255, 0.87);
@@ -152,10 +150,12 @@ span.title svg {
   line-height: 1.7;
 
   margin-top: 1rem;
+
+  transition: background-color 0.3s;
 }
 
 .watched-btn:hover:not(:disabled) {
-  background-color: rgba(84, 84, 84, 0.3);
+  background-color: var(--black-muted);
 }
 
 .watched-btn:disabled {
@@ -163,13 +163,5 @@ span.title svg {
   opacity: 0.6;
 }
 
-.watched-badge {
-  margin-top: 1rem;
-  padding: 0.5rem;
-  background: #d4edda;
-  color: #155724;
-  border-radius: 4px;
-  text-align: center;
-  font-weight: 600;
-}
+
 </style>

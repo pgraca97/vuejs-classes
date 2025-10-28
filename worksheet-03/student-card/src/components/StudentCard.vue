@@ -51,22 +51,22 @@ export default {
 
 <style scoped>
 .student-card {
-  border: 1px solid rgb(66, 184, 131);
+  border: 1px solid var(--green);
   border-radius: 8px;
   padding: 1rem;
-  background-color: rgb(36, 36, 36);
+  background-color: var(--bg-soft);
   text-align: left;
 }
 
 .student-card h2 {
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--text-dark);
   margin-top: 0;
   margin-bottom: 1rem;
   font-size: 1.2em;
 }
 
 .student-info {
-  color: rgba(235, 235, 235, 0.6);
+  color: var(--text-dark-secondary);
 
   display: flex;
   flex-direction: column;
@@ -79,6 +79,6 @@ export default {
 }
 
 .student-info strong {
-  color: rgb(66, 184, 131);
+  color: var(--green);
 }
 </style>

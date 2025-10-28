@@ -80,29 +80,25 @@ export default {
 <style scoped>
 .stock-toggle-btn {
   font-family: 'inter-variable', 'Inter', sans-serif;
-  background-color: #2f2f2f;
-  transition:
-    background-color 0.5s,
-    transform 0.2s;
+  background-color: var(--black-mute);
+  transition: background-color 0.5s;
   padding: 5px 12px;
-  border: 1px solid rgba(84, 84, 84, 0.65);
-  border-radius: 8px;
+  border: 1px solid var(--divider);
+  border-radius: 4px;
   font-size: 0.9em;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--text-dark);
   cursor: pointer;
   line-height: 1.7;
-  margin-bottom: 1.5rem;
+  margin-block-end: 1rem;
 }
 
 .stock-toggle-btn:hover {
-  background-color: rgba(84, 84, 84, 0.3);
-  transform: translateY(-2px);
+  background-color: var(--black-muted);
 }
 
 .stock-toggle-btn:active {
   transform: translateY(0px) scale(0.98);
-  background-color: rgba(84, 84, 84, 0.25);
 }
 
 .products-grid {

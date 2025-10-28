@@ -26,6 +26,8 @@ export default {
         <!-- Slot nomeado para o título -->
         <h3 class="faq-title">
           <slot name="title">Título por defeito</slot>
+          <!-- Indicador visual que roda quando abre/fecha -->
+          <span class="faq-indicator" :class="{ rotated: isOpen }"> ▼ </span>
         </h3>
 
         <!-- Slot nomeado para o subtitle (só aparece se for fornecido) -->
@@ -33,9 +35,6 @@ export default {
           <slot name="subtitle"></slot>
         </p>
       </div>
-
-      <!-- Indicador visual que roda quando abre/fecha -->
-      <span class="faq-indicator" :class="{ rotated: isOpen }"> ▼ </span>
     </div>
 
     <!-- Body que aparece/desaparece consoante isOpen -->
@@ -48,7 +47,7 @@ export default {
 
 <style scoped>
 .faq-item {
-  border: 1px solid #ddd;
+  border: 1px solid var(--divider);
   border-radius: 8px;
   margin-bottom: 1rem;
   overflow: hidden;
@@ -56,12 +55,12 @@ export default {
 }
 
 .faq-item:hover {
-  border-color: #3498db;
+  border-color: var(--divider);
 }
 
 .faq-item.open {
-  border-color: #3498db;
-  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+  border: 1px solid var(--divider);
+  background-color: var(--bg-soft);
 }
 
 .faq-header {
@@ -70,12 +69,12 @@ export default {
   align-items: center;
   padding: 1.25rem;
   cursor: pointer;
-  background: white;
+  background: var(--bg-soft);
   transition: background 0.2s;
 }
 
 .faq-header:hover {
-  background: #f8f9fa;
+  background-color: var(--bg-soft);
 }
 
 .faq-title-section {
@@ -83,21 +82,23 @@ export default {
 }
 
 .faq-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 0;
-  color: #2c3e50;
   font-size: 1.1rem;
 }
 
 .faq-subtitle {
   margin: 0.5rem 0 0 0;
-  color: #7f8c8d;
+  color: var(--text-dark-secondary);
   font-size: 0.9rem;
   line-height: 1.4;
 }
 
 .faq-indicator {
   font-size: 1.2rem;
-  color: #3498db;
+  color: var(--green);
   transition: transform 0.3s;
   user-select: none;
 }
@@ -108,7 +109,7 @@ export default {
 
 .faq-body {
   padding: 0 1.25rem 1.25rem 1.25rem;
-  color: #555;
+  color: var(--text-dark);
   line-height: 1.6;
   animation: slideDown 0.3s ease-out;
 }

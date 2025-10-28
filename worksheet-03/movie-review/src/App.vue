@@ -88,7 +88,6 @@ export default {
   <div class="app">
     <h1>As Minhas Reviews</h1>
 
-
     <div class="movies-container">
       <!-- Passa o objeto completo do filme -->
       <!-- E também passa os métodos que o filho pode chamar para atualizar o estado -->
@@ -108,18 +107,6 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-}
-
-.stats {
-  background: #f5f5f5;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-}
-
-.stats p {
-  margin: 0.5rem 0;
-  font-weight: 600;
 }
 
 .movies-container {

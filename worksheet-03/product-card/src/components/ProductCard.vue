@@ -65,15 +65,15 @@ export default {
 
 <style scoped>
 .product-card {
-  border: 1px solid rgb(66, 184, 131);
+  border: 1px solid var(--divider);
   border-radius: 8px;
   padding: 1rem;
-  background-color: rgb(36, 36, 36);
+  background-color: var(--black-muted);
   text-align: left;
 }
 
 .product-card h2 {
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--text-dark);
   margin: 0;
   font-size: 1em;
 
@@ -96,7 +96,7 @@ export default {
 }
 
 .product-info {
-  padding: 1rem;
+  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -111,7 +111,7 @@ export default {
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--text-dark);
 }
 
 .badge {
@@ -124,33 +124,36 @@ export default {
 }
 
 .badge.in-stock {
-  color: rgb(66, 184, 131);
-  border: 1px solid rgb(66, 184, 131);
+  color: var(--green);
+  border: 1px solid var(--green);
 }
 
 .badge.out-of-stock {
-  color: rgb(184, 66, 66);
-  border: 1px solid rgb(184, 66, 66);
+  color: var(--red);
+  border: 1px solid var(--red);
 }
 
 .button-container {
   margin-top: auto;
+  padding-inline: 2rem;
   min-height: 44px;
 }
 
 .add-to-cart-btn {
-  font-family: 'inter-variable', 'Inter', sans-serif;
+  font-family: inherit;
   width: 100%;
   padding: 0.75rem;
-  background: #27ae60;
+  background: var(--black-mute);
+  border: 1px solid var(--divider);
   color: white;
-  border: none;
+
   border-radius: 4px;
-  cursor: pointer;
   font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
 .add-to-cart-btn:hover {
-  background: #229954;
+    background: var(--black-muted);
 }
 </style>
