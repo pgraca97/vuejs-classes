@@ -3,31 +3,22 @@ export default {
   name: 'TaskInput',
   data() {
     return {
-      newTaskDescription: '', // Input value
+      newTaskDescription: '', // Estado local do input
     }
   },
   methods: {
     addTask() {
-      // Trim para remover espaços em branco no início/fim
+      // Remove espaços em branco no início e fim
       const description = this.newTaskDescription.trim()
 
-      // Não permite adicionar tarefas vazias
-      if (description === '') {
-        return
-      }
+      // Validação: não permite tarefas vazias
+      if (description === '') return
 
-      // Emite evento com a descrição
+      // Emite evento para o pai com a descrição validada
       this.$emit('add-task', description)
 
-      // Limpa o input
+      // Limpa o input após adicionar
       this.newTaskDescription = ''
-    },
-
-    // Método para permitir adicionar com Enter
-    handleKeyup(event) {
-      if (event.key === 'Enter') {
-        this.addTask()
-      }
     },
   },
 }
@@ -37,7 +28,7 @@ export default {
   <div class="task-input">
     <input
       v-model="newTaskDescription"
-      @keyup="handleKeyup"
+      @keyup.enter="addTask"
       type="text"
       placeholder="Adicionar nova tarefa..."
       class="input-field"
@@ -83,7 +74,6 @@ input::placeholder {
   border-radius: 4px;
   font-size: 0.9rem;
   font-weight: 600;
-
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -91,5 +81,4 @@ input::placeholder {
 .add-button:hover {
   background: var(--black-muted);
 }
-
 </style>

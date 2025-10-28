@@ -6,18 +6,20 @@ export default {
       type: Object,
       required: true,
       validator(value) {
-        return value.id && value.description && typeof value.completed === 'boolean'
+        // Valida que o objeto task tem a estrutura esperada
+        return (
+          value.id && value.description && typeof value.completed === 'boolean'
+        )
       },
     },
   },
   methods: {
     toggleTask() {
-      // Emite evento com o ID da tarefa
+      // Emite evento com o ID da tarefa para o pai alterar o estado
       this.$emit('toggle-task', this.task.id)
     },
-
     deleteTask() {
-      // Emite evento com o ID da tarefa
+      // Emite evento com o ID da tarefa para o pai remover do array
       this.$emit('delete-task', this.task.id)
     },
   },
@@ -27,11 +29,11 @@ export default {
 <template>
   <div class="task-item" :class="{ completed: task.completed }">
     <label class="checkbox-wrapper">
-      <input 
-        type="checkbox" 
-        :checked="task.completed" 
-        @change="toggleTask" 
-        class="task-checkbox" 
+      <input
+        type="checkbox"
+        :checked="task.completed"
+        @change="toggleTask"
+        class="task-checkbox"
       />
       <span class="custom-checkbox"></span>
     </label>
@@ -69,7 +71,7 @@ export default {
 }
 
 /* Esconde checkbox nativa */
-.checkbox-wrapper input[type="checkbox"] {
+.checkbox-wrapper input[type='checkbox'] {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -87,16 +89,16 @@ export default {
   justify-content: center;
 }
 
-.checkbox-wrapper:hover input[type="checkbox"]:not(:checked) + .custom-checkbox {
+.checkbox-wrapper:hover input[type='checkbox']:not(:checked) + .custom-checkbox {
   background-color: var(--black-mute);
 }
 
-.checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox {
+.checkbox-wrapper input[type='checkbox']:checked + .custom-checkbox {
   background: var(--black-muted);
 }
 
 /* Checkmark */
-.checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox::after {
+.checkbox-wrapper input[type='checkbox']:checked + .custom-checkbox::after {
   content: '✓';
   color: var(--green);
   font-family: inherit;
@@ -105,7 +107,7 @@ export default {
   transition: all 0.2s;
 }
 
-.checkbox-wrapper:hover input[type="checkbox"]:checked + .custom-checkbox::after {
+.checkbox-wrapper:hover input[type='checkbox']:checked + .custom-checkbox::after {
   color: var(--text-dark-secondary);
 }
 

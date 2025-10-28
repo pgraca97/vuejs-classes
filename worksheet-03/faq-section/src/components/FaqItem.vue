@@ -1,7 +1,6 @@
 <script>
 export default {
   name: 'FAQItem',
-  // Componente controlado pelo pai: recebe isOpen via prop
   props: {
     isOpen: {
       type: Boolean,
@@ -10,8 +9,8 @@ export default {
   },
   methods: {
     toggle() {
-      // Emite evento para o pai saber que este item foi clicado
-      // O pai decide como reagir (por exemplo: abrir/fechar ou garantir "apenas um aberto")
+      // Emite evento para o pai decidir o que fazer
+      // (abrir/fechar ou garantir que apenas 1 está aberto)
       this.$emit('toggle')
     },
   },
@@ -20,26 +19,27 @@ export default {
 
 <template>
   <div class="faq-item" :class="{ open: isOpen }">
-    <!-- Header clicável que sempre está visível -->
+    <!-- Header clicável sempre visível -->
     <div class="faq-header" @click="toggle">
       <div class="faq-title-section">
-        <!-- Slot nomeado para o título -->
         <h3 class="faq-title">
+          <!-- Slot nomeado: permite customizar o título -->
           <slot name="title">Título por defeito</slot>
+          
           <!-- Indicador visual que roda quando abre/fecha -->
           <span class="faq-indicator" :class="{ rotated: isOpen }"> ▼ </span>
         </h3>
 
-        <!-- Slot nomeado para o subtitle (só aparece se for fornecido) -->
+        <!-- Slot opcional: só renderiza se o pai passar conteúdo -->
         <p v-if="$slots.subtitle" class="faq-subtitle">
           <slot name="subtitle"></slot>
         </p>
       </div>
     </div>
 
-    <!-- Body que aparece/desaparece consoante isOpen -->
+    <!-- Body que aparece/desaparece via v-if -->
     <div v-if="isOpen" class="faq-body">
-      <!-- Slot nomeado para o conteúdo detalhado -->
+      <!-- Slot nomeado: conteúdo detalhado da resposta -->
       <slot name="body">Conteúdo por defeito</slot>
     </div>
   </div>

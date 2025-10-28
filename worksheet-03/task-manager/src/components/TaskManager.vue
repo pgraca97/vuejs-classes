@@ -11,11 +11,10 @@ export default {
   data() {
     return {
       tasks: [
-        // Dados de exemplo para testares
         { id: 1, description: 'Aprender Vue.js', completed: false },
         { id: 2, description: 'Fazer exercícios', completed: true },
       ],
-      STORAGE_KEY: 'vue-tasks'
+      STORAGE_KEY: 'vue-tasks',
     }
   },
   computed: {
@@ -26,8 +25,8 @@ export default {
       return this.tasks.filter(task => task.completed).length
     },
   },
-  // Carrega do localStorage quando o componente é criado
   mounted() {
+    // Carrega tarefas guardadas no localStorage
     const savedTasks = localStorage.getItem(this.STORAGE_KEY)
     if (savedTasks) {
       this.tasks = JSON.parse(savedTasks)
@@ -35,33 +34,33 @@ export default {
   },
   methods: {
     addTask(description) {
-      // Cria nova tarefa e adiciona ao array
+      // Cria nova tarefa com UUID único
       const newTask = {
         id: self.crypto.randomUUID(),
         description: description,
         completed: false,
       }
       this.tasks.push(newTask)
-      this.savedTasks() // Guarda após alterar
+      this.saveTasks()
     },
-    
+
     toggleTask(taskId) {
-      // Encontra a tarefa e inverte o completed
+      // Encontra tarefa pelo ID e inverte o estado completed
       const task = this.tasks.find(t => t.id === taskId)
       if (task) {
         task.completed = !task.completed
-        this.savedTasks() 
+        this.saveTasks()
       }
     },
-    
+
     deleteTask(taskId) {
-      // Remove a tarefa do array
+      // Remove tarefa do array através de filter
       this.tasks = this.tasks.filter(t => t.id !== taskId)
-      this.savedTasks() 
+      this.saveTasks()
     },
 
-    savedTasks() {
-      // Guarda o array de tarefas no localStorage
+    saveTasks() {
+      // Persiste array de tarefas no localStorage
       localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.tasks))
     },
   },
@@ -70,16 +69,13 @@ export default {
 
 <template>
   <div class="task-manager">
-    <!-- Input para adicionar novas tarefas -->
     <TaskInput @add-task="addTask" />
-    
-    <!-- Contador de tarefas -->
+
     <div v-if="totalTasks" class="task-counter">
       <p>Total de tarefas: {{ totalTasks }}</p>
       <p>Tarefas completas: {{ completedTasks }} / {{ totalTasks }}</p>
     </div>
-    
-    <!-- Lista de tarefas -->
+
     <div class="task-list">
       <TaskItem
         v-for="task in tasks"
@@ -88,8 +84,7 @@ export default {
         @toggle-task="toggleTask"
         @delete-task="deleteTask"
       />
-      
-      <!-- Mensagem quando não há tarefas -->
+
       <p v-if="!totalTasks" class="empty-message">
         Nenhuma tarefa ainda. Adiciona uma acima!
       </p>
@@ -122,6 +117,7 @@ export default {
 .empty-message {
   text-align: center;
   color: var(--text-dark-secondary);
-  margin: 0;
+  margin-top: 2rem;
+  margin-bottom: 0;
 }
 </style>

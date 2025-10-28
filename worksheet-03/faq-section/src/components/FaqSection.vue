@@ -11,20 +11,22 @@ export default {
       type: Array,
       required: true,
       validator(value) {
+        // Valida que todos os objetos têm as propriedades obrigatórias
         return value.every((faq) => faq.id && faq.title && faq.body)
       },
     },
   },
   data() {
     return {
-      // Guarda o id do FAQ atualmente aberto; null significa nenhum aberto
+      // Controla qual FAQ está aberto (null = nenhum)
+      // Apenas 1 FAQ aberto de cada vez
       openFaqId: null,
     }
   },
   methods: {
-    // Ao receber um toggle de um filho, alternamos o estado.
-    // Se o mesmo id já estava aberto fechamos (null), senão abrimos o novo.
     handleToggle(faqId) {
+      // Se clicar no mesmo que já está aberto, fecha
+      // Senão, fecha o atual e abre o novo
       if (this.openFaqId === faqId) {
         this.openFaqId = null
       } else {
@@ -41,13 +43,14 @@ export default {
       <h2 class="section-title">Perguntas Frequentes</h2>
     </div>
 
-    <!-- Cada item é controlado pelo pai via prop `isOpen` -->
+    <!-- Componente controlado: pai controla estado via prop isOpen -->
     <FaqItem
       v-for="faq in faqs"
       :key="faq.id"
       :is-open="openFaqId === faq.id"
       @toggle="handleToggle(faq.id)"
     >
+      <!-- Preenchimento de named slots com dados do array -->
       <template #title>
         {{ faq.title }}
       </template>
@@ -84,5 +87,4 @@ h2 {
 .section-title {
   margin: 0;
 }
-
 </style>
