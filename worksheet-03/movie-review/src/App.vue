@@ -8,8 +8,7 @@ export default {
   },
   data() {
     return {
-      // Cada filme é um objeto completo com TODAS as suas propriedades
-      // Exatamente como viria de uma API ou base de dados
+      // Estado centralizado: App mantém todos os dados dos filmes
       movies: [
         {
           id: self.crypto.randomUUID(),
@@ -47,40 +46,24 @@ export default {
     }
   },
   methods: {
-    // Método que será chamado quando o rating mudar
-    // Recebe o ID do filme e o novo rating
+    // Handler de evento rating-changed vindo do MovieReview
     updateMovieRating(movieId, newRating) {
-      // Encontra o filme no array pelo ID
       const movie = this.movies.find((m) => m.id === movieId)
       if (!movie) return
-
       if (movie.rating === newRating && movie.isWatched) return
 
-      // Atualiza o rating do filme
       movie.rating = newRating
-      movie.isWatched = true // marca como visto automaticamente
+      movie.isWatched = true // Marca como visto automaticamente ao avaliar
     },
 
-    // Método que será chamado quando marcar como visto
+    // Handler de evento mark-as-watched vindo do MovieReview
     markMovieAsWatched(movieId) {
       const movie = this.movies.find((m) => m.id === movieId)
       if (!movie || movie.isWatched) return
 
       movie.isWatched = true
     },
-  },
-  computed: {
-    // Exemplo de como agora podes fazer queries sobre os dados
-    watchedMoviesCount() {
-      return this.movies.filter((m) => m.isWatched).length
-    },
-    averageRating() {
-      const ratedMovies = this.movies.filter((m) => m.rating > 0)
-      if (ratedMovies.length === 0) return 0
-      const sum = ratedMovies.reduce((acc, m) => acc + m.rating, 0)
-      return (sum / ratedMovies.length).toFixed(1)
-    },
-  },
+  }
 }
 </script>
 
@@ -89,8 +72,7 @@ export default {
     <h1>As Minhas Reviews</h1>
 
     <div class="movies-container">
-      <!-- Passa o objeto completo do filme -->
-      <!-- E também passa os métodos que o filho pode chamar para atualizar o estado -->
+      <!-- Passa objeto filme completo e ouve eventos emitidos pelo MovieReview -->
       <MovieReview
         v-for="movie in movies"
         :key="movie.id"

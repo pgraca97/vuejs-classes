@@ -6,14 +6,12 @@ export default {
   components: {
     RatingStars,
   },
-  // Agora recebe o objeto completo do filme
-  // Incluindo rating e isWatched
   props: {
+    // Recebe objeto completo do filme (incluindo rating e isWatched)
     movie: {
       type: Object,
       required: true,
       validator(value) {
-        // Valida que o objeto tem todas as propriedades necessárias
         return (
           value.id &&
           value.title &&
@@ -26,12 +24,11 @@ export default {
   },
   methods: {
     handleRatingChange(rating) {
-      // Não guarda localmente, emite evento para o pai
-      // Passa o ID do filme e o novo rating
+      // Não guarda localmente - emite para o pai (App) atualizar
       this.$emit('rating-changed', this.movie.id, rating)
     },
     handleMarkAsWatched() {
-      // Emite evento com o ID do filme
+      // Emite ID do filme para o pai marcar como visto
       this.$emit('mark-as-watched', this.movie.id)
     },
   },
@@ -40,8 +37,9 @@ export default {
 
 <template>
   <div class="movie-review" :class="{ watched: movie.isWatched }">
-    <span class="title"
-      ><h2>{{ movie.title }}</h2>
+    <span class="title">
+      <h2>{{ movie.title }}</h2>
+      <!-- Ícone de "visto" se movie.isWatched === true -->
       <svg
         v-if="movie.isWatched"
         xmlns="http://www.w3.org/2000/svg"
@@ -61,24 +59,19 @@ export default {
     </span>
     <p class="description">{{ movie.description }}</p>
 
-    <!-- Passa o rating atual do filme -->
+    <!-- Passa rating atual e ouve evento rating-changed -->
     <RatingStars :rating="movie.rating" @rating-changed="handleRatingChange" />
 
-    <!-- Utiliza o rating do objeto filme -->
     <p class="rating-display" v-if="movie.rating > 0">Classificação: {{ movie.rating }}/5</p>
     <p class="rating-display" v-else>Clique para classificar</p>
 
-    <!-- Utiliza o isWatched do objeto filme -->
     <button @click="handleMarkAsWatched" class="watched-btn" :disabled="movie.isWatched">
       {{ movie.isWatched ? 'Já Visto' : 'Marcar como Visto' }}
     </button>
-
-
   </div>
 </template>
 
 <style scoped>
-
 .movie-review {
   display: flex;
   flex-direction: column;
@@ -162,6 +155,4 @@ span.title svg {
   cursor: not-allowed;
   opacity: 0.6;
 }
-
-
 </style>

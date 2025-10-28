@@ -29,8 +29,12 @@ export default {
           studentNumber: 12347,
           course: 'TSIW',
           year: 5,
-        }, // year inválido - vai dar warning
-        { id: crypto.randomUUID(), name: 'John Doe', studentNumber: 12348 }, // testa os defaults
+        }, // Valor inválido - vai acionar o validator
+        {
+          id: crypto.randomUUID(),
+          name: 'John Doe',
+          studentNumber: 12348,
+        }, // course e year omitidos - os valores default vão ser definidos no componente
       ],
     }
   },
@@ -41,7 +45,7 @@ export default {
   <h1>Lista de Estudantes</h1>
 
   <div class="students-grid">
-    <!-- Passa cada prop individualmente, não o objeto inteiro -->
+    <!-- Passagem de cada prop individualmente -->
     <StudentCard
       v-for="student in students"
       :key="student.id"

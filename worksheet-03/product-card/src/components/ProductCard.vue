@@ -2,11 +2,12 @@
 export default {
   name: 'ProductCard',
   props: {
+    // Prop do tipo Object - útil quando há múltiplas propriedades relacionadas
     product: {
       type: Object,
       required: true,
       validator(value) {
-        // Valida que o objeto tem as propriedades necessárias
+        // Verifica se tem as propriedades necessárias
         const hasRequiredProps =
           value.name &&
           typeof value.price === 'number' &&
@@ -21,7 +22,10 @@ export default {
       },
     },
   },
+  // Declara eventos que o componente emite (boa prática)
+  emits: ['add-to-cart'],
   computed: {
+    // Formata o preço para locale pt-PT com currency EUR
     formattedPrice() {
       return new Intl.NumberFormat('pt-PT', {
         style: 'currency',
@@ -32,7 +36,7 @@ export default {
   },
   methods: {
     addToCart() {
-      // Emite o evento para o componente pai
+      // $emit: envia evento customizado para o componente pai
       this.$emit('add-to-cart', this.product.id)
     },
   },
@@ -45,6 +49,7 @@ export default {
 
     <div class="product-info">
       <h2>{{ product.name }}</h2>
+      <!-- Classes dinâmicas com objeto: { 'classe': condição } -->
       <span
         class="badge"
         :class="{ 'in-stock': product.inStock, 'out-of-stock': !product.inStock }"
@@ -52,9 +57,11 @@ export default {
         {{ product.inStock ? 'Em Stock' : 'Esgotado' }}
       </span>
 
+      <!-- Computed property no template -->
       <p class="price">{{ formattedPrice }}</p>
 
       <div class="button-container">
+        <!-- v-if: só renderiza botão se produto em stock -->
         <button v-if="product.inStock" @click="addToCart" class="add-to-cart-btn">
           Adicionar ao Carrinho
         </button>
@@ -154,6 +161,6 @@ export default {
 }
 
 .add-to-cart-btn:hover {
-    background: var(--black-muted);
+  background: var(--black-muted);
 }
 </style>

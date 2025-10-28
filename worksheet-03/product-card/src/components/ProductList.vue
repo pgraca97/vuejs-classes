@@ -41,16 +41,18 @@ export default {
     }
   },
   methods: {
+    // Handler para evento customizado emitido do ProductCard
+    // Recebe o productId como payload
     handleAddToCart(productId) {
       if (!productId) return
       const product = this.products.find((p) => p.id === productId)
       if (!product) return
       if (!product.inStock) return // evita duplicados
 
-      // marcar imediatamente (optimistic update)
+      // Marca o produto como esgotado
       product.inStock = false
 
-      // mostrar mensagem não-blocking — aqui uso alert por simplicidade
+      // Mostrar mensagem — aqui utilizo alert por simplicidade
       alert(`Produto ${product.name} adicionado ao carrinho!`)
     },
     toggleRandomStock() {
@@ -67,6 +69,12 @@ export default {
     <button @click="toggleRandomStock" class="stock-toggle-btn">Alterar Stock Aleatório</button>
 
     <div class="products-grid">
+      <!--
+        @add-to-cart: ouve evento emitido pelo ProductCard
+        
+        Props são reativas: quando products[x].inStock muda,
+        o ProductCard correspondente atualiza automaticamente
+      -->
       <ProductCard
         v-for="product in products"
         :key="product.id"

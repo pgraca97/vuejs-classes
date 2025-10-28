@@ -6,6 +6,7 @@ export default {
       type: Number,
       default: 0,
       validator(value) {
+        // Valida que o rating está entre 0 e 5
         return value >= 0 && value <= 5
       }
     }
@@ -17,7 +18,7 @@ export default {
   },
   methods: {
     selectRating(star) {
-      // Emite o evento para o componente pai
+      // Emite rating selecionado para o pai
       this.$emit('rating-changed', star)
     },
   },
@@ -26,7 +27,7 @@ export default {
 
 <template>
   <div class="rating-stars" @mouseleave="hoverRating = 0">
-    <!-- Renderiza 5 estrelas -->
+    <!-- Renderiza 5 estrelas interativas -->
     <svg
       v-for="star in 5"
       :key="star"

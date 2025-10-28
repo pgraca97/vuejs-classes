@@ -1,18 +1,17 @@
 <script>
-import ProductList from './components/ProductList.vue';
-
+import ProductList from './components/ProductList.vue'
 
 export default {
   name: 'App',
   components: {
-    ProductList
+    ProductList,
   },
 }
-
 </script>
 
 <template>
   <h1>Vende-se!</h1>
+  <!-- ProductList gere toda a lógica de produtos e eventos -->
   <ProductList />
 </template>
 

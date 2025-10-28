@@ -12,16 +12,18 @@
 <script>
 export default {
   name: 'StudentCard',
+  // Propiedades recebidas do componente pai
   props: {
     name: {
       type: String,
-      required: true,
+      required: true, // Obrigatório - vai dar warning se não for fornecido
     },
     studentNumber: {
       type: Number,
       required: true,
       validator(value) {
-        // Valida que o número é positivo
+        // Validator: função que valida o valor recebido
+        // Valida que o número recebido é positivo
         if (value <= 0) {
           console.warn(`Invalid studentNumber: ${value}. Must be positive.`)
           return false
@@ -31,6 +33,7 @@ export default {
     },
     course: {
       type: String,
+      // Default: valor utilizado quando o pai não passa a prop
       default: 'TSIW',
     },
     year: {
