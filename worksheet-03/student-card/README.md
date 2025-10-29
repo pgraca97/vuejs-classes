@@ -164,4 +164,3 @@ Vue faz a conversão automaticamente.
 ## Recursos Úteis
 
 - [Vue.js - Props](https://vuejs.org/guide/components/props.html)
-- [Vue.js - Prop Validation](https://vuejs.org/guide/components/props.html#prop-validation)

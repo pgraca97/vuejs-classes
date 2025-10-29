@@ -247,5 +247,3 @@ methods: {
 ## Recursos Úteis
 
 - [Vue.js - Slots](https://vuejs.org/guide/components/slots.html)
-- [Vue.js - Named Slots](https://vuejs.org/guide/components/slots.html#named-slots)
-- [Vue.js - Slot Content & Outlets](https://vuejs.org/guide/components/slots.html#slot-content-and-outlet)
