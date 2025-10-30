@@ -84,7 +84,7 @@ export default {
   },
   methods: {
     loadCategoryNews() {
-      this.categoryName = this.$route.params.name
+      this.categoryName = this.$route.params.name.charAt(0).toUpperCase() + this.$route.params.name.slice(1).toLowerCase()
 
       if (this.categoryExists) {
         this.filteredNews = getNewsByCategory(this.categoryName)

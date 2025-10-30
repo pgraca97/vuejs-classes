@@ -3,8 +3,8 @@
     <div class="sidebar-section">
       <h3>Categories</h3>
       <nav class="category-list">
-        <RouterLink 
-          v-for="category in categories" 
+        <RouterLink
+          v-for="category in categories"
           :key="category"
           :to="`/category/${category}`"
           class="category-item"
@@ -17,14 +17,22 @@
     <div class="sidebar-section">
       <h3>Featured News</h3>
       <div class="featured-list">
-        <div 
-          v-for="article in featuredNews" 
+        <RouterLink
+          v-for="article in featuredNews"
           :key="article.id"
-          class="featured-item"
+          :to="{
+            name: 'article',
+            params: { name: article.category.toLocaleLowerCase(), id: article.id },
+          }"
+          custom
+          v-slot="{ navigate, isExactActive }"
         >
-          <h4>{{ article.title }}</h4>
-          <span class="featured-category">{{ article.category }}</span>
-        </div>
+          <div @click="navigate" 
+          :class="['featured-item', {active: isExactActive}]">
+            <h4>{{ article.title }}</h4>
+            <span class="featured-category">{{ article.category }}</span>
+          </div>
+        </RouterLink>
       </div>
     </div>
   </div>
@@ -38,9 +46,9 @@ export default {
   data() {
     return {
       categories: getCategories(),
-      featuredNews: getFeaturedNews()
+      featuredNews: getFeaturedNews(),
     }
-  }
+  },
 }
 </script>
 
@@ -59,7 +67,6 @@ export default {
 .sidebar-section h3 {
   color: var(--text-dark);
   margin-bottom: 1rem;
-
 }
 
 .category-list {
@@ -98,6 +105,11 @@ export default {
   border-radius: 6px;
   border-left: 3px solid var(--green);
 }
+
+.featured-item.active {
+  border-left: 3px solid var(--yellow);
+}
+
 
 .featured-item h4 {
   font-size: 0.9rem;

@@ -58,10 +58,7 @@ export default {
   },
   methods: {
     nextSlide() {
-      console.log(this.currentIndex)
-      console.log(this.featuredNews.length)
       this.currentIndex = (this.currentIndex + 1) % this.featuredNews.length
-      console.log(this.currentIndex)
     },
     goToSlide(index) {
       this.currentIndex = index
