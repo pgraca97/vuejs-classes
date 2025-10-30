@@ -36,8 +36,8 @@ Ficha de exercícios com dois projetos práticos:
 Ficha de exercícios para consolidar conceitos de comunicação entre componentes via props, eventos personalizados e slots. Inclui os seguintes projetos:
 
 - **Student Card** - Renderização de cartões de estudantes por props.
-- **Product Card** - Interação dinâmica com props reativas e emissão de eventos.
-- **Movie Review** - Gestão de reviews de filmes com emit de evento e estado centralizado.
+- **Product Card** - Interação dinâmica com props reativas e emissão de evento.
+- **Movie Review** - Gestão de reviews de filmes com emit de eventos e estado centralizado.
 - **Task Manager** - Gestão de tarefas com estado centralizado e persistência local.
 - **FAQ Section** - Secção de perguntas frequentes utilizando named slots para flexibilidade.
 

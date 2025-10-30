@@ -136,7 +136,7 @@ methods: {
 - **Comunicativo**: Emite evento quando user interage
 - **Self-contained**: UI e lógica de interação incluídas
 
-**Poderia ser usado noutros contextos:**
+**Poderia ser utilizado noutros contextos:**
 
 ```vue
 <!-- Reviews de restaurantes -->

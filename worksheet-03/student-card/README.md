@@ -122,7 +122,7 @@ props: {
 
 ### Kebab-case no Template
 
-No template HTML, atributos devem usar **kebab-case** (hífenes), mas no JavaScript usamos **camelCase**.
+No template HTML, atributos devem utilizar **kebab-case** (hífenes), mas no JavaScript utilizamos **camelCase**.
 
 ```vue
 <!-- Template: kebab-case -->
@@ -143,7 +143,7 @@ Vue faz a conversão automaticamente.
 **No array de estudantes (App.vue):**
 
 1. **Aluno com todos os dados:** Ana Silva (props explícitas)
-2. **Aluno com defaults:** John Doe (course e year omitidos → usam defaults)
+2. **Aluno com defaults:** John Doe (course e year omitidos → utiliza-se os defaults)
 3. **Aluno com valor inválido:** Maria Costa (year: 5 → aciona validator)
 
 **Resultado esperado:**
@@ -155,10 +155,10 @@ Vue faz a conversão automaticamente.
 ## Boas Práticas
 
 - Sempre definir `type` nas props para melhor documentação e type checking
-- Usar `required: true` para props essenciais
+- Utilizar `required: true` para props essenciais
 - Adicionar `default` para props opcionais
 - Validar intervalos numéricos e formatos específicos com `validator`
-- Usar kebab-case no template, camelCase no script
+- Utilizar kebab-case no template, camelCase no script
 
 
 ## Recursos Úteis

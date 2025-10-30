@@ -141,7 +141,7 @@ Slots podem ter **conteúdo por defeito** que aparece quando o pai não fornece 
 
 ### Verificar se Slot foi Preenchido
 
-Podes verificar se um slot tem conteúdo usando `$slots`:
+Podes verificar se um slot tem conteúdo utilizando `$slots`:
 
 ```vue
 <!-- Só renderiza <p> se o pai passou conteúdo para subtitle -->
@@ -171,7 +171,7 @@ Isto evita renderizar HTML vazio quando o slot é opcional.
 ```vue
 <!-- ❌ Props: filho controla formatação -->
 <FAQItem title="Título" subtitle="Resumo" />
-<!-- Filho decide tamanho da fonte, cor, se usa <strong>, etc -->
+<!-- Filho decide tamanho da fonte, cor, se utiliza <strong>, etc -->
 
 <!-- ✅ Slots: pai controla formatação -->
 <FAQItem>

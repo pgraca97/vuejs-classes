@@ -133,7 +133,7 @@ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(59
 
 ### Eventos Customizados ($emit)
 
-Componentes filhos **não podem modificar props diretamente**. Para notificar o pai de ações, usam **eventos customizados**.
+Componentes filhos **não podem modificar props diretamente**. Para notificar o pai de ações, utilizam **eventos customizados**.
 
 **Declaração de eventos (boa prática):**
 
