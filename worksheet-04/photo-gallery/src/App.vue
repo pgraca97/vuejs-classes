@@ -70,14 +70,6 @@ export default {
   flex: 1;
 }
 
-
-/* .content .container:has(> .home) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-} */
-
 .footer {
   border-top: 1px solid rgba(84, 84, 84, 0.65);
 }

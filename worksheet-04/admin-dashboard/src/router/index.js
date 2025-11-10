@@ -11,7 +11,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: LoginView
+      component: LoginView,
     },
     {
       path: '/dashboard',
@@ -20,23 +20,23 @@ const router = createRouter({
       children: [
         {
           path: '', // /dashboard
-          component: OverviewView
+          component: OverviewView,
         },
         {
           path: 'users', // /dashboard/users
-          component: UsersView
+          component: UsersView,
         },
         {
           path: 'users/:id', // /dashboard/users/:id (rota dinâmica)
-          component: UserDetailView
+          component: UserDetailView,
         },
         {
           path: 'settings', // /dashboard/settings
-          component: SettingsView
-        }
-      ]
-    }
-  ]
+          component: SettingsView,
+        },
+      ],
+    },
+  ],
 })
 
 export default router

@@ -18,7 +18,7 @@ const router = createRouter({
     },
     {
       // Rota wildcard - captura TODAS as rotas que não deram match acima
-      // CRITICAL: Esta rota DEVE estar sempre no final
+      // Esta rota DEVE estar sempre no final
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: NotFoundView

@@ -87,7 +87,6 @@ export default {
   flex-direction: column;
 } */
 
-
 .footer {
   border-top: 1px solid rgba(84, 84, 84, 0.65);
 }

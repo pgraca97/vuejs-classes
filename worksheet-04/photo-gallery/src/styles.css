@@ -1,8 +1,6 @@
-/* Imports globais */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://use.typekit.net/nkc3wfz.css');
 
-/* Variáveis CSS */
 :root {
   --bg: rgb(26, 26, 26);
   --bg-soft: rgb(36, 36, 36);
@@ -10,7 +8,7 @@
   --text-dark-secondary: rgba(235, 235, 235, 0.6);
 
   --divider: rgba(84, 84, 84, 0.65);
-  
+
   --green: rgb(66, 184, 131);
   --green-hover: rgb(56, 154, 111);
 
@@ -70,12 +68,9 @@ p:not(footer p) {
   user-select: none;
 }
 
-/* Spacing Responsivo */
-
-/* Tablet */
 @media (min-width: 768px) {
   .container {
-    padding: 64px ;
+    padding: 64px;
   }
 
   .navbar-content {

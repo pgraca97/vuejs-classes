@@ -5,13 +5,13 @@
 
     <div class="gallery-grid">
       <!-- named routes com params -->
-      <RouterLink 
-        v-for="photo in photos" 
+      <RouterLink
+        v-for="photo in photos"
         :key="photo.id"
         :to="{ name: 'photo', params: { id: photo.id } }"
         class="photo-card"
       >
-        <img :src="photo.url" :alt="photo.title">
+        <img :src="photo.url" :alt="photo.title" />
         <div class="photo-overlay">
           <h3>{{ photo.title }}</h3>
         </div>
@@ -27,15 +27,13 @@ export default {
   name: 'HomeView',
   data() {
     return {
-      photos: photos
+      photos: photos,
     }
-  }
+  },
 }
 </script>
 
 <style scoped>
-
-
 h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -50,9 +48,8 @@ h1 {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem; 
+  gap: 1rem;
 }
-
 
 .photo-card {
   position: relative;
@@ -60,12 +57,7 @@ h1 {
   border-radius: 12px;
   aspect-ratio: 4/3;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
   text-decoration: none;
-}
-
-.photo-card:hover {
-  transform: translateY(-8px);
 }
 
 .photo-card img {
@@ -105,5 +97,4 @@ h1 {
     gap: 2rem;
   }
 }
-
 </style>

@@ -134,8 +134,6 @@ export default {
 </script>
 
 <style scoped>
-
-
 .not-found h2 {
   color: var(--red);
   margin-bottom: 0.75rem;
@@ -212,7 +210,7 @@ export default {
 .user-email {
   color: var(--text-dark-secondary);
   margin-bottom: 1rem;
-  word-break: break-all; 
+  word-break: break-all;
 }
 
 .status-badge {
@@ -286,6 +284,5 @@ export default {
   .detail-section {
     max-width: 600px;
   }
-
 }
 </style>

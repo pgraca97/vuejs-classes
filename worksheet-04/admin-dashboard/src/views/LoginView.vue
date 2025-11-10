@@ -52,7 +52,7 @@ export default {
   methods: {
     handleLogin() {
       // Simulação de login (sem validação real)
-      // Em produção, seria feito aqui uma chamada à API
+      // Em produção, seria feito aqui uma chamada à API e lógica adicional se necessário
 
       this.$router.push('/dashboard')
     },

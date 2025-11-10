@@ -1,4 +1,4 @@
-// Base de dados de notícias
+// Dummy news data
 export const news = [
   {
     id: 1,

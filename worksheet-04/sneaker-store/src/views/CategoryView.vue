@@ -3,9 +3,7 @@
     <div v-if="!categoryExists" class="not-found">
       <h1>Category Not Found</h1>
       <p>The category "{{ categoryName }}" doesn't exist.</p>
-      <RouterLink to="/shop" class="back-button">
-        View All Products
-      </RouterLink>
+      <RouterLink to="/shop" class="back-button"> View All Products </RouterLink>
     </div>
 
     <div v-else>
@@ -17,12 +15,8 @@
       </div>
 
       <div class="products-grid">
-        <div 
-          v-for="product in filteredProducts" 
-          :key="product.id"
-          class="product-card"
-        >
-          <img :src="product.image" :alt="product.name">
+        <div v-for="product in filteredProducts" :key="product.id" class="product-card">
+          <img :src="product.image" :alt="product.name" />
           <div class="product-info">
             <h3>{{ product.name }}</h3>
             <p class="price">€{{ product.price.toFixed(2) }}</p>
@@ -46,22 +40,22 @@ export default {
     return {
       filteredProducts: [],
       categoryName: '',
-      validCategories: getCategories()
+      validCategories: getCategories(),
     }
   },
   computed: {
     categoryExists() {
       return this.validCategories.some(
-        cat => cat.toLowerCase() === this.categoryName.toLowerCase()
+        (cat) => cat.toLowerCase() === this.categoryName.toLowerCase(),
       )
-    }
+    },
   },
   created() {
     // Carrega os produtos quando o componente é criado
     this.loadCategoryProducts()
   },
   watch: {
-    // CRITICAL: Isto resolve o problema da reutilização do componente
+    // Isto resolve o problema da reutilização do componente
     // Quando mudamos de /shop/category/Running para /shop/category/Casual,
     // o Vue reutiliza o mesmo componente CategoryView
     // Então é necessário observar mudanças na rota e recarregar os produtos
@@ -69,22 +63,22 @@ export default {
       handler() {
         this.loadCategoryProducts()
       },
-      immediate: false // Não precisa de executar imediatamente porque o created() já o faz
-    }
+      immediate: false, // Não precisa de executar imediatamente porque o created() já o faz
+    },
   },
   methods: {
     loadCategoryProducts() {
       // Obtém o nome da categoria do URL
       this.categoryName = this.$route.params.name
-      
+
       // Filtra produtos pela categoria
       if (this.categoryExists) {
         this.filteredProducts = getProductsByCategory(this.categoryName)
       } else {
         this.filteredProducts = []
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -174,6 +168,6 @@ h1 {
 }
 
 .back-button:hover {
-   background-color: var(--black-muted);
+  background-color: var(--black-muted);
 }
 </style>

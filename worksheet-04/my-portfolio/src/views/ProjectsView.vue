@@ -37,7 +37,6 @@ export default {
 </script>
 
 <style scoped>
-
 .project-list {
   display: grid;
   gap: 2rem;

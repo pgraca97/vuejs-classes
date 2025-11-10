@@ -33,7 +33,6 @@ export default {
 </script>
 
 <style scoped>
-
 .contact-info {
   display: grid;
   gap: 1.5rem;
@@ -52,5 +51,4 @@ export default {
   display: block;
   margin-bottom: 0.5rem;
 }
-
 </style>

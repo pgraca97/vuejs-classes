@@ -1,4 +1,4 @@
-// Base de dados de utilizadores (em produção viria de uma API)
+// Dummy data de utilizadores
 export const users = [
   {
     id: 1,

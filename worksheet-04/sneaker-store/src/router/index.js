@@ -1,4 +1,3 @@
-
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ShopView from '../views/ShopView.vue'
@@ -11,7 +10,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: HomeView
+      component: HomeView,
     },
     {
       path: '/shop',
@@ -20,24 +19,24 @@ const router = createRouter({
       children: [
         {
           // Path vazio significa "mesma rota que o pai"
-          // Quando acedes a /shop, renderiza AllProductsView
+          // Quando acedemos a /shop, renderiza AllProductsView
           path: '',
-          component: AllProductsView
+          component: AllProductsView,
         },
         {
           // Path relativo ao pai
           // /shop/category/:name
           path: 'category/:name',
-          component: CategoryView
-        }
-      ]
+          component: CategoryView,
+        },
+      ],
     },
     {
       path: '/about',
       name: 'about',
-      component: AboutView
-    }
-  ]
+      component: AboutView,
+    },
+  ],
 })
 
 export default router

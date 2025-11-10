@@ -81,6 +81,7 @@ export default {
     window.addEventListener('keydown', this.handleKeyNavigation)
   },
   beforeUnmount() {
+    // Remove event listener ao desmontar o componente
     window.removeEventListener('keydown', this.handleKeyNavigation)
   },
   watch: {
@@ -89,6 +90,7 @@ export default {
       handler() {
         this.loadPhoto()
       },
+      immediate: false,
     },
   },
   methods: {

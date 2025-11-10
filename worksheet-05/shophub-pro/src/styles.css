@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://use.typekit.net/nkc3wfz.css');
+
+:root {
+  --bg: rgb(26, 26, 26);
+  --bg-soft: rgb(36, 36, 36);
+  --text-dark: rgba(255, 255, 255, 0.87);
+  --text-dark-secondary: rgba(235, 235, 235, 0.6);
+  --text-dark-blue: rgb(170, 200, 228);
+
+  --divider: rgba(84, 84, 84, 0.65);
+  --green: rgb(66, 184, 131);
+  --red: rgba(231, 78, 61, 0.87);
+  --yellow: rgb(243, 156, 18);
+
+  --black-mute: rgb(47, 47, 47);
+  --black-muted: rgba(47, 47, 47, 0.6);
+
+  --btn-hover: rgb(58, 58, 58);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'inter-variable', 'Inter', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg);
+  line-height: 1.6;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.product-card {
+  background-color: var(--bg-soft);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1rem;
+}
+
+.product-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: -webkit-linear-gradient(300deg, #42d392 5%, #647eff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.rating {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-dark-secondary);
+  margin-bottom: 1rem;
+}
+
+.view-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--black-mute);
+  color: var(--text-dark-blue);
+  text-align: center;
+  text-decoration: none;
+  border-radius: 16px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--black-mute)) padding-box,
+    -webkit-linear-gradient(315deg, #42d392 25%, #647eff) border-box;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.view-button:hover,
+.secondary-button {
+  background:
+    linear-gradient(var(--btn-hover)) padding-box,
+    -webkit-linear-gradient(315deg, #42d392 25%, #647eff) border-box;
+}

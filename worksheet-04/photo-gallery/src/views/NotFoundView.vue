@@ -40,7 +40,6 @@ export default {
   padding: 2rem;
 }
 
-/* Gradiente vermelho para o código de erro */
 .error-code {
   font-size: 8rem;
   margin: 0;

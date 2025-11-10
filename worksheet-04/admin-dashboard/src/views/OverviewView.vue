@@ -46,8 +46,6 @@
         </RouterLink>
       </div>
     </div>
-
-  
   </div>
 </template>
 
@@ -71,7 +69,6 @@ export default {
   gap: 2rem;
 }
 
-/* Stats grid */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -106,7 +103,6 @@ export default {
   margin: 0;
 }
 
-/* Quick actions */
 .quick-actions h2 {
   margin-bottom: 1rem;
 }
@@ -149,5 +145,4 @@ export default {
   color: var(--text-dark);
   margin: 0;
 }
-
 </style>

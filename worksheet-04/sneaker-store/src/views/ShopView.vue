@@ -45,7 +45,7 @@ export default {
 .shop {
   display: grid;
   grid-template-columns: 1fr;
-  min-height: calc(100vh - 121px); 
+  min-height: calc(100vh - 121px);
 }
 
 .sidebar {
@@ -98,7 +98,8 @@ export default {
     gap: 0.5rem;
   }
 
-  .sidebar, .products-area {
+  .sidebar,
+  .products-area {
     padding-inline: 2rem;
   }
 }

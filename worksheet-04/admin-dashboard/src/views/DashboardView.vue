@@ -177,10 +177,5 @@ export default {
   .sidebar-footer {
     margin-top: auto;
   }
-
-  /* .sidebar,
-  .main-content {
-    padding-right: 2rem;
-  } */
 }
 </style>

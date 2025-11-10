@@ -1,8 +1,6 @@
-/* Imports globais */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://use.typekit.net/nkc3wfz.css');
 
-/* Variáveis CSS */
 :root {
   --bg: rgb(26, 26, 26);
   --bg-soft: rgb(36, 36, 36);
@@ -42,7 +40,6 @@ body {
   flex-direction: column;
 }
 
-
 .container {
   max-width: 1440px;
   height: 100%;
@@ -69,12 +66,9 @@ p:not(footer p) {
   user-select: none;
 }
 
-/* Spacing Responsivo */
-
-/* Tablet */
 @media (min-width: 768px) {
   .container {
-    padding: 64px ;
+    padding: 64px;
   }
 
   .navbar-content {
@@ -82,7 +76,6 @@ p:not(footer p) {
   }
 }
 
-/* Desktop */
 @media (min-width: 1024px) {
   .container {
     padding: 2rem;

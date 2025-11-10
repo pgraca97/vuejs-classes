@@ -71,7 +71,9 @@ p {
   line-height: 1.7;
   text-decoration: none;
   font-weight: 600;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .shop-link:hover {

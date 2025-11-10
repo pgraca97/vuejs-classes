@@ -36,10 +36,7 @@
               </span>
             </td>
             <td data-label="Actions">
-              <RouterLink
-                :to="`/dashboard/users/${user.id}`"
-                class="view-button"
-              >
+              <RouterLink :to="`/dashboard/users/${user.id}`" class="view-button">
                 View Details
               </RouterLink>
             </td>
@@ -92,7 +89,6 @@ export default {
   margin: 0;
 }
 
-/* Tabela */
 .users-table-container {
   background: var(--bg-soft);
   border-radius: 12px;
@@ -137,8 +133,8 @@ export default {
 }
 
 .user-avatar {
-  width: 40px;
-  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   border-radius: 50%;
   background: var(--bg-soft);
   border: 1px solid var(--divider);
@@ -198,12 +194,12 @@ export default {
   font-weight: 600;
   font-size: 0.875rem;
   transition: background-color 0.3s;
+  text-align: center;
 }
 
 .view-button:hover {
   background-color: var(--black-muted);
 }
-
 
 @media (max-width: 767px) {
   .users-table-container {

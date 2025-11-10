@@ -16,7 +16,6 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos para o cabeçalho */
 h1 {
   font-size: 2.375rem;
   font-weight: 600;

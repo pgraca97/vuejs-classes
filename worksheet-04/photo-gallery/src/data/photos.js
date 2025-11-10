@@ -1,4 +1,4 @@
-// Base de dados de fotos
+// Dummy data de fotos
 export const photos = [
   {
     id: 1,

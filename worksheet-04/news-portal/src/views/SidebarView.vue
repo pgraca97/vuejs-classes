@@ -1,8 +1,10 @@
 <template>
   <div class="sidebar">
+    <!-- Secção de categorias -->
     <div class="sidebar-section">
       <h3>Categories</h3>
       <nav class="category-list">
+        <!-- Renderiza links para cada categoria dinamicamente -->
         <RouterLink
           v-for="category in categories"
           :key="category"
@@ -14,9 +16,11 @@
       </nav>
     </div>
 
+    <!-- Secção de notícias em destaque -->
     <div class="sidebar-section">
       <h3>Featured News</h3>
       <div class="featured-list">
+        <!-- Renderiza links personalizados para cada artigo destacado -->
         <RouterLink
           v-for="article in featuredNews"
           :key="article.id"
@@ -27,8 +31,8 @@
           custom
           v-slot="{ navigate, isExactActive }"
         >
-          <div @click="navigate" 
-          :class="['featured-item', {active: isExactActive}]">
+          <!-- Utiliza scoped slots para controlar o comportamento e estilo -->
+          <div @click="navigate" :class="['featured-item', { active: isExactActive }]">
             <h4>{{ article.title }}</h4>
             <span class="featured-category">{{ article.category }}</span>
           </div>
@@ -43,6 +47,7 @@ import { getCategories, getFeaturedNews } from '@/data/news.js'
 
 export default {
   name: 'SidebarView',
+
   data() {
     return {
       categories: getCategories(),
@@ -53,6 +58,7 @@ export default {
 </script>
 
 <style scoped>
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -109,7 +115,6 @@ export default {
 .featured-item.active {
   border-left: 3px solid var(--yellow);
 }
-
 
 .featured-item h4 {
   font-size: 0.9rem;

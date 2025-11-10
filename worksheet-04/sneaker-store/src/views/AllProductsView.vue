@@ -4,12 +4,8 @@
     <p class="subtitle">Browse our complete collection of sneakers</p>
 
     <div class="products-grid">
-      <div 
-        v-for="product in products" 
-        :key="product.id"
-        class="product-card"
-      >
-        <img :src="product.image" :alt="product.name">
+      <div v-for="product in products" :key="product.id" class="product-card">
+        <img :src="product.image" :alt="product.name" />
         <div class="product-info">
           <span class="category-badge">{{ product.category }}</span>
           <h3>{{ product.name }}</h3>

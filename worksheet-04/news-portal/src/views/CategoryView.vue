@@ -4,19 +4,13 @@
     <div v-if="!categoryExists" class="not-found">
       <h1>Category Not Found</h1>
       <p>The category "{{ categoryName }}" doesn't exist.</p>
-      <RouterLink to="/home" class="back-button">
-        
-        Back to Home
-      </RouterLink>
+      <RouterLink to="/home" class="back-button"> Back to Home </RouterLink>
     </div>
 
     <!-- Category content -->
     <div v-else>
       <div class="category-header">
-        <RouterLink to="/home" class="back-button">
-
-          Back to Home
-        </RouterLink>
+        <RouterLink to="/home" class="back-button"> Back to Home </RouterLink>
         <h1>{{ categoryName }}</h1>
         <p class="subtitle">
           {{ filteredNews.length }} article{{ filteredNews.length !== 1 ? 's' : '' }} in this
@@ -80,11 +74,14 @@ export default {
       handler() {
         this.loadCategoryNews()
       },
+      immediate: false,
     },
   },
   methods: {
     loadCategoryNews() {
-      this.categoryName = this.$route.params.name.charAt(0).toUpperCase() + this.$route.params.name.slice(1).toLowerCase()
+      this.categoryName =
+        this.$route.params.name.charAt(0).toUpperCase() +
+        this.$route.params.name.slice(1).toLowerCase()
 
       if (this.categoryExists) {
         this.filteredNews = getNewsByCategory(this.categoryName)
@@ -142,7 +139,6 @@ export default {
 .back-button:hover {
   background-color: var(--black-muted);
 }
-
 
 .category-header {
   margin-bottom: 1rem;

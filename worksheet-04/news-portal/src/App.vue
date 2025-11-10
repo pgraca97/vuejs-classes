@@ -83,7 +83,6 @@ export default {
   cursor: pointer;
 }
 
-/* Layout */
 .layout {
   flex: 1;
   max-width: 1400px;
