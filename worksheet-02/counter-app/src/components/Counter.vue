@@ -94,7 +94,7 @@ export default {
     <!-- Display principal: botões -/+ e valor do contador -->
     <div class="counter-display">
       <!-- @click chama método increment sem argumentos (utiliza default = 1) -->
-      <button @click="increment">&#43;</button>
+      <button @click="increment()">&#43;</button>
       <h2>{{ count }}</h2>
       <button @click="decrement">&#8722;</button>
     </div>
