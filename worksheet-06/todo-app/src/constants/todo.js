@@ -7,4 +7,5 @@ export const normalizePriority = (p) => (typeof p === 'string' ? p.trim().toLowe
 
 export const isValidPriority = (p) => PRIORITIES.includes(p)
 
+// Lista canónica de filtros
 export const FILTERS = Object.freeze(['todas', 'pendentes', 'concluídas'])
