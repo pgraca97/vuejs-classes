@@ -1,8 +1,7 @@
 // API de comunicação com JSON Server
 // Iniciar servidor: json-server --watch db.json --port 3000
 
-// Base URL do JSON Server
-const BASE_URL = 'http://localhost:3001'
+const BASE_URL = 'http://localhost:3000'
 
 // Request genérico com tratamento de erros
 async function request(endpoint, options = {}) {
@@ -42,48 +41,28 @@ function del(endpoint) {
   return request(endpoint, { method: 'DELETE' })
 }
 
-// GET /notes - Todas as notas
-function getAllNotes() {
-  return get('/notes')
+// GET /dishes - Todos os pratos
+export function getAllDishes() {
+  return get('/dishes')
 }
 
-// GET /notes/:id - Nota por ID
-function getNoteById(id) {
-  return get(`/notes/${id}`)
+// GET /dishes?category=:category - Pratos por categoria
+export function getDishesByCategory(category) {
+  if (!category) return getAllDishes()
+  return get(`/dishes?category=${encodeURIComponent(category)}`)
 }
 
-// GET /notes?category=:category - Notas por categoria
-function getNotesByCategory(category) {
-  return get(`/notes?category=${encodeURIComponent(category)}`)
+// POST /dishes - Criar prato
+export function createDish(dishData) {
+  return post('/dishes', dishData)
 }
 
-// GET /notes?q=:query - Pesquisa full-text (JSON Server)
-function searchNotes(query) {
-  if (!query || query.trim() === '') return getAllNotes()
-  return get(`/notes?q=${encodeURIComponent(query)}`)
+// PUT /dishes/:id - Atualizar prato
+export function updateDish(id, dishData) {
+  return put(`/dishes/${id}`, dishData)
 }
 
-// POST /notes - Criar nota
-function createNote(noteData) {
-  return post('/notes', noteData)
-}
-
-// PUT /notes/:id - Atualizar nota completa
-function updateNote(id, noteData) {
-  return put(`/notes/${id}`, noteData)
-}
-
-// DELETE /notes/:id - Eliminar nota
-function deleteNote(id) {
-  return del(`/notes/${id}`)
-}
-
-export {
-  getAllNotes,
-  getNoteById,
-  getNotesByCategory,
-  searchNotes,
-  createNote,
-  updateNote,
-  deleteNote,
+// DELETE /dishes/:id - Eliminar prato
+export function deleteDish(id) {
+  return del(`/dishes/${id}`)
 }
