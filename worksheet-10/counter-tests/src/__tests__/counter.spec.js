@@ -1,32 +1,24 @@
+// Testes da Store Pinia - useCounterStore
+// Cobrem o ciclo completo de state management:
+// - State inicial
+// - Actions (increment, decrement, reset)
+// - Getters (double, isPositive)
+
 import { setActivePinia, createPinia } from 'pinia'
 import { beforeEach, describe, it, expect } from 'vitest'
 import { useCounterStore } from '@/stores/counter'
 
-/**
- * Testes para useCounterStore
- *
- * IMPORTANTE: Stores Pinia precisam de uma instância ativa do Pinia
- * para funcionarem. Por isso usamos setActivePinia() antes de cada teste.
- */
-
 describe('useCounterStore', () => {
-  /**
-   * beforeEach() corre antes de cada teste individual
-   *
-   * Aqui criamos uma nova instância limpa do Pinia para cada teste.
-   * Isto garante que os testes são independentes - um teste não
-   * afeta o resultado de outro.
-   */
+  // Criar nova instância do Pinia antes de cada teste
+  // Garante que cada teste tem uma store limpa
   beforeEach(() => {
     setActivePinia(createPinia())
   })
 
   describe('initial state', () => {
     it('should start with count = 0', () => {
-      // Criar a store
       const store = useCounterStore()
 
-      // Verificar que o state inicial está correto
       expect(store.count).toBe(0)
     })
   })
@@ -36,13 +28,8 @@ describe('useCounterStore', () => {
       it('should increase count by 1', () => {
         const store = useCounterStore()
 
-        // State inicial
         expect(store.count).toBe(0)
-
-        // Executar a action
         store.increment()
-
-        // Verificar que o state mudou
         expect(store.count).toBe(1)
       })
 
@@ -61,7 +48,6 @@ describe('useCounterStore', () => {
       it('should decrease count by 1', () => {
         const store = useCounterStore()
 
-        // Partir de 0, decrementar vai para -1
         store.decrement()
 
         expect(store.count).toBe(-1)
@@ -80,9 +66,9 @@ describe('useCounterStore', () => {
       it('should work after incrementing', () => {
         const store = useCounterStore()
 
-        store.increment() // count = 1
-        store.increment() // count = 2
-        store.decrement() // count = 1
+        store.increment()
+        store.increment()
+        store.decrement()
 
         expect(store.count).toBe(1)
       })
@@ -92,16 +78,13 @@ describe('useCounterStore', () => {
       it('should reset count to 0', () => {
         const store = useCounterStore()
 
-        // Modificar o state
         store.increment()
         store.increment()
         store.increment()
         expect(store.count).toBe(3)
 
-        // Executar reset
         store.reset()
 
-        // Verificar que voltou a 0
         expect(store.count).toBe(0)
       })
 
@@ -124,10 +107,8 @@ describe('useCounterStore', () => {
       it('should return double the count value', () => {
         const store = useCounterStore()
 
-        // Testar com count = 0
         expect(store.double).toBe(0)
 
-        // Testar com count = 5
         store.count = 5
         expect(store.double).toBe(10)
       })
@@ -142,13 +123,8 @@ describe('useCounterStore', () => {
       it('should be reactive to state changes', () => {
         const store = useCounterStore()
 
-        // Getter inicial
         expect(store.double).toBe(0)
-
-        // Modificar state através de action
         store.increment()
-
-        // Getter deve atualizar automaticamente (reatividade)
         expect(store.double).toBe(2)
       })
     })
@@ -179,14 +155,11 @@ describe('useCounterStore', () => {
       it('should update reactively', () => {
         const store = useCounterStore()
 
-        // Começa false (count = 0)
         expect(store.isPositive).toBe(false)
 
-        // Incrementar torna true
         store.increment()
         expect(store.isPositive).toBe(true)
 
-        // Decrementar duas vezes torna false
         store.decrement()
         store.decrement()
         expect(store.isPositive).toBe(false)
@@ -194,17 +167,14 @@ describe('useCounterStore', () => {
     })
   })
 
-  // Teste de integração entre state, actions e getters
   describe('integration', () => {
     it('should maintain consistency between state, actions and getters', () => {
       const store = useCounterStore()
 
-      // Estado inicial
       expect(store.count).toBe(0)
       expect(store.double).toBe(0)
       expect(store.isPositive).toBe(false)
 
-      // Incrementar 3 vezes
       store.increment()
       store.increment()
       store.increment()
@@ -213,7 +183,6 @@ describe('useCounterStore', () => {
       expect(store.double).toBe(6)
       expect(store.isPositive).toBe(true)
 
-      // Decrementar 5 vezes
       store.decrement()
       store.decrement()
       store.decrement()
@@ -224,7 +193,6 @@ describe('useCounterStore', () => {
       expect(store.double).toBe(-4)
       expect(store.isPositive).toBe(false)
 
-      // Reset
       store.reset()
 
       expect(store.count).toBe(0)
@@ -233,3 +201,10 @@ describe('useCounterStore', () => {
     })
   })
 })
+
+// Conceitos demonstrados:
+// - setActivePinia() para setup do Pinia em testes
+// - beforeEach() para garantir testes isolados
+// - Testar state inicial
+// - Testar actions síncronas
+// - Testar getters e a sua reatividade
